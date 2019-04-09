@@ -8,19 +8,18 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <MyLineChart />
+          <h1>Expense Vis</h1>
+          <div className="box">
+            <div className="box-header">
+                <button class="w3-button w3-black button">Currency</button>
+              <div class="w3-bar">
+                <button class="w3-button w3-teal button">Income</button>
+                <button class="w3-button w3-red button">Debt</button>
+              </div>
+            </div>
+            <MyLineChart />
+
+          </div>
         </header>
       </div>
     );
