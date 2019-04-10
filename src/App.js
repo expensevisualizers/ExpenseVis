@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MyLineChart from './LineChart.js';
+import MyMonth from './MonthView.js';
 
 class App extends Component {
   render() {
@@ -11,13 +12,13 @@ class App extends Component {
           <h1>Expense Vis</h1>
           <div className="box">
             <div className="box-header">
-                <button class="w3-button w3-black button">Currency</button>
-              <div class="w3-bar">
-                <button class="w3-button w3-teal button">Income</button>
-                <button class="w3-button w3-red button">Debt</button>
+                <button className="w3-button w3-black button">Currency</button>
+              <div className="w3-bar">
+                <button className="w3-button w3-teal button">Income</button>
+                <button className="w3-button w3-red button">Debt</button>
               </div>
             </div>
-            <MyLineChart />
+            <MyMonth />
 
           </div>
         </header>
