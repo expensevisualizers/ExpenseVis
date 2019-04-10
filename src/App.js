@@ -20,13 +20,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Expense Vis</h1>
+            { this.state.month == "all" ?
+                <h1>Expense Vis</h1> :
+                <h1>Viewing {this.state.month}</h1> }
           <div className="box">
             <div className="box-header">
                 <button class="w3-button w3-black button" onClick={()=>{this.setState({month: "all"})}}>Back</button>
               <div class="w3-bar">
-                <button class="w3-button w3-teal button">Income</button>
-                <button class="w3-button w3-red button">Debt</button>
+                  <button class="w3-button w3-orange button">Debt</button>
+                  <button class="w3-button w3-teal button">Income</button>
+                <button class="w3-button w3-red button">Spending</button>
               </div>
             </div>
 
