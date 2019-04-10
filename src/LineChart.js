@@ -16,14 +16,29 @@ const data = [
     {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
 
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 export default class myLineChart extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {data: []}
+        this.buildData(this.props.spending);
+        console.log(this.state.data)
+    }
+
+    buildData(spending){
+        spending.forEach((month)=>{
+            var split = month[0].date.split('/');
+            var monthData = {name : months[+split[0]-1]};
+            month.forEach((trans)=>{
+                monthData[trans.category] = (monthData[trans.category] || 0) + parseInt(trans.amount);
+            });
+            this.state.data.push(monthData);
+        })
     }
 
     render () {
         return (
-            <AreaChart width={1200} height={600} data={data}
+            <AreaChart width={1200} height={600} data={this.state.data}
                        margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                 <defs>
                     <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -36,11 +51,14 @@ export default class myLineChart extends React.Component{
                     </linearGradient>
                 </defs>
                 <XAxis dataKey="name" onClick={this.props.clickHandle}/>
+                {/*<Legend />*/}
                 <YAxis />
                 <CartesianGrid strokeDasharray="3 3" />
                 <Tooltip />
-                <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                <Area type="monotone" dataKey="Food" stroke="#34B393" fillOpacity={1} fill="url(#colorUv)" />
+                <Area type="monotone" dataKey="Entertainment" stroke="#63FFD9" fillOpacity={1} fill="url(#colorPv)" />
+                <Area type="monotone" dataKey="Transportation" stroke="#FF6D63" fillOpacity={1} fill="url(#colorPv)" />
+                <Area type="monotone" dataKey="Clothes" stroke="#CCC127" fillOpacity={1} fill="url(#colorPv)" />
             </AreaChart>
 
         );

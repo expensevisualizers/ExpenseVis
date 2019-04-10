@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import MyLineChart from './LineChart.js';
 import MyPieChart from './PieChart.js';
-import spending from 'spending.json';
+import spending from './spending.json';
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class App extends Component {
             </div>
 
               { this.state.month == "all" ?
-                  <MyLineChart clickHandle={this.clickHandle}/> :
+                  <MyLineChart clickHandle={this.clickHandle} spending={spending}/> :
                   <MyPieChart month={this.state.month}/> }
 
 
