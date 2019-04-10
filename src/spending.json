@@ -29,8 +29,8 @@
         "detail": "Eat at McDonald",
         "currency": "US dollar"}
     ],
-    "income" : 5000,
-    "debt" : 15000},
+    "income" : 200,
+    "debt" : 300},
 
     {"spending": [
     {"date": "8/2/2018",
@@ -63,8 +63,8 @@
         "detail": "Buy a comic book",
         "currency": "US dollar"}
 ],
-        "income" : 8000,
-        "debt" : 10000},
+        "income" : 300,
+        "debt" : 200},
     {"spending": [
         {"date": "9/5/2018",
             "amount": "15",
@@ -96,8 +96,8 @@
             "detail": "Shop at supermarket",
             "currency": "US dollar"}
     ],
-        "income" : 5500,
-        "debt" : 8000},
+        "income" : 200,
+        "debt" : 150},
 
     {"spending": [
         {"date": "10/2/2018",
@@ -130,8 +130,8 @@
             "detail": "Watch a movie",
             "currency": "US dollar"}
     ],
-        "income" : 6000,
-        "debt" : 5000},
+        "income" : 250,
+        "debt" : 100},
 
     {"spending": [
         {"date": "11/2/2018",
@@ -164,8 +164,8 @@
             "detail": "Buy a comic book",
             "currency": "US dollar"}
     ],
-        "income" : 6500,
-        "debt" : 6000},
+        "income" : 200,
+        "debt" : 50},
     {"spending": [
         {"date": "12/5/2018",
             "amount": "15",
@@ -197,6 +197,6 @@
             "detail": "Buy a clothes",
             "currency": "US dollar"}
     ],
-        "income" : 7000,
-        "debt" : 4000}
+        "income" : 300,
+        "debt" : 0}
 ]
