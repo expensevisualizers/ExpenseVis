@@ -1,4 +1,4 @@
-[[
+[ {"spending": [
     {"date": "7/2/2018",
         "amount": "20",
         "category": "Food",
@@ -28,9 +28,11 @@
         "category": "Food",
         "detail": "Eat at McDonald",
         "currency": "US dollar"}
-],
+    ],
+    "income" : 5000,
+    "debt" : 15000},
 
-[
+    {"spending": [
     {"date": "8/2/2018",
         "amount": "25",
         "category": "Food",
@@ -61,7 +63,9 @@
         "detail": "Buy a comic book",
         "currency": "US dollar"}
 ],
-    [
+        "income" : 8000,
+        "debt" : 10000},
+    {"spending": [
         {"date": "9/5/2018",
             "amount": "15",
             "category": "Transportation",
@@ -92,8 +96,10 @@
             "detail": "Shop at supermarket",
             "currency": "US dollar"}
     ],
+        "income" : 5500,
+        "debt" : 8000},
 
-    [
+    {"spending": [
         {"date": "10/2/2018",
             "amount": "20",
             "category": "Food",
@@ -124,8 +130,10 @@
             "detail": "Watch a movie",
             "currency": "US dollar"}
     ],
+        "income" : 6000,
+        "debt" : 5000},
 
-    [
+    {"spending": [
         {"date": "11/2/2018",
             "amount": "25",
             "category": "Grocery",
@@ -156,7 +164,9 @@
             "detail": "Buy a comic book",
             "currency": "US dollar"}
     ],
-    [
+        "income" : 6500,
+        "debt" : 6000},
+    {"spending": [
         {"date": "12/5/2018",
             "amount": "15",
             "category": "Food",
@@ -186,5 +196,7 @@
             "category": "Clothes",
             "detail": "Buy a clothes",
             "currency": "US dollar"}
-    ]
+    ],
+        "income" : 7000,
+        "debt" : 4000}
 ]

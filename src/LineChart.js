@@ -20,16 +20,17 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 export default class myLineChart extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {data: []}
-        this.buildData(this.props.spending);
+        this.state = {data: [],
+        };
+        this.buildData(this.props.data);
         console.log(this.state.data)
     }
 
     buildData(spending){
         spending.forEach((month)=>{
-            var split = month[0].date.split('/');
-            var monthData = {name : months[+split[0]-1]};
-            month.forEach((trans)=>{
+            var split = month.spending[0].date.split('/');
+            var monthData = {name : months[+split[0]-1], income : month.income, debt : month.debt};
+            month.spending.forEach((trans)=>{
                 monthData[trans.category] = (monthData[trans.category] || 0) + parseInt(trans.amount);
             });
             this.state.data.push(monthData);
@@ -53,12 +54,15 @@ export default class myLineChart extends React.Component{
                 <XAxis dataKey="name" onClick={this.props.clickHandle}/>
                 {/*<Legend />*/}
                 <YAxis />
+                <YAxis yAxisId={1} orientation='right'/>
                 <CartesianGrid strokeDasharray="3 3" />
                 <Tooltip />
-                <Area type="monotone" dataKey="Food" stroke="#34B393" fillOpacity={1} fill="url(#colorUv)" />
-                <Area type="monotone" dataKey="Entertainment" stroke="#63FFD9" fillOpacity={1} fill="url(#colorPv)" />
-                <Area type="monotone" dataKey="Transportation" stroke="#FF6D63" fillOpacity={1} fill="url(#colorPv)" />
-                <Area type="monotone" dataKey="Clothes" stroke="#CCC127" fillOpacity={1} fill="url(#colorPv)" />
+                {this.props.spending ? <Area type="monotone" dataKey="Food" stroke="#34B393" fillOpacity={1} fill="url(#colorUv)" /> : null }
+                {this.props.spending ? <Area type="monotone" dataKey="Entertainment" stroke="#63FFD9" fillOpacity={1} fill="url(#colorPv)" /> : null }
+                {this.props.spending ? <Area type="monotone" dataKey="Transportation" stroke="#FF6D63" fillOpacity={1} fill="url(#colorPv)" /> : null }
+                {this.props.spending ? <Area type="monotone" dataKey="Clothes" stroke="#CCC127" fillOpacity={1} fill="url(#colorPv)" /> : null }
+                {this.props.income ? <Area type="monotone" dataKey="income" stroke="#3DFF00" fillOpacity={1} fill="url(#colorPv)" /> : null }
+                {this.props.debt ? <Area type="monotone" dataKey="debt" stroke="#FF0500" fillOpacity={1} fill="url(#colorPv)" /> : null }
             </AreaChart>
 
         );
