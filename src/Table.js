@@ -4,23 +4,8 @@
 
 import React, { Component } from 'react';
 import Griddle from 'griddle-react';
+import {ResponsiveContainer} from "recharts";
 
-class Filter extends Component {
-    onChange(e) {
-        this.props.onChange(e.target.value);
-    }
-
-    render() {
-        return (
-            <select onChange={this.onChange}>
-                <option value="">All</option>
-                <option value="two">two</option>
-                <option value="three">three</option>
-                <option value="one">one</option>
-            </select>
-        );
-    }
-}
 
 export default class App extends Component{
 
@@ -30,29 +15,24 @@ export default class App extends Component{
             styles: {
                 TableHeadingCell: { width: 100 },
                 Table: {
-                    width: 1000,
                     color: "black"
                 },
                 Settings: {hidden: true}
             }
         };
 
-        let data = [
-            { one: 'one', two: 'two', three: 'three' },
-            { one: 'uno', two: 'dos', three: 'tres' },
-            { one: 'ichi', two: 'ni', three: 'san' }
-        ];
+        let thisMonthSpending = this.props.data[0].spending;
 
         const NewLayout = ({ Table, Pagination, Filter, SettingsWrapper }) => (
             <div>
-                <Filter className="flex-item" />
-                <Pagination className="flex-item" />
+                <Filter/>
+                <Pagination/>
                 <Table />
             </div>
         );
 
         return (
-            <Griddle className="flex-item flex-container" data={data} styleConfig={styleConfig} components={{Layout: NewLayout}}/>
+                <Griddle className="flex-container" data={thisMonthSpending} styleConfig={styleConfig} components={{Layout: NewLayout}}/>
         );
     }
 }

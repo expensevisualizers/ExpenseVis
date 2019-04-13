@@ -1,0 +1,202 @@
+[ {"spending": [
+    {"date": "7/2/2018",
+        "amount": "20",
+        "category": "Food",
+        "detail": "Eat at Boston Market",
+        "currency": "US dollar"},
+
+    {"date": "7/10/2018",
+        "amount": "15",
+        "category": "Entertainment",
+        "detail": "Watch movie",
+        "currency": "US dollar"},
+
+    {"date": "7/15/2018",
+        "amount": "10",
+        "category": "Transportation",
+        "detail": "Uber",
+        "currency": "US dollar"},
+
+    {"date": "7/20/2018",
+        "amount": "25",
+        "category": "Clothes",
+        "detail": "Buy a T-shirt",
+        "currency": "US dollar"},
+
+    {"date": "7/30/2018",
+        "amount": "23",
+        "category": "Food",
+        "detail": "Eat at McDonald",
+        "currency": "US dollar"}
+    ],
+    "income" : 200,
+    "debt" : 300},
+
+    {"spending": [
+    {"date": "8/2/2018",
+        "amount": "25",
+        "category": "Food",
+        "detail": "Eat at Boston Market",
+        "currency": "US dollar"},
+
+    {"date": "8/10/2018",
+        "amount": "8",
+        "category": "Transportation",
+        "detail": "Uber",
+        "currency": "US dollar"},
+
+    {"date": "8/15/2018",
+        "amount": "10",
+        "category": "Sports",
+        "detail": "Go to the gym",
+        "currency": "US dollar"},
+
+    {"date": "8/20/2018",
+        "amount": "15",
+        "category": "Food",
+        "detail": "Eat at restaurant",
+        "currency": "US dollar"},
+
+    {"date": "8/26/2018",
+        "amount": "20",
+        "category": "Entertainment",
+        "detail": "Buy a comic book",
+        "currency": "US dollar"}
+],
+        "income" : 300,
+        "debt" : 200},
+    {"spending": [
+        {"date": "9/5/2018",
+            "amount": "15",
+            "category": "Transportation",
+            "detail": "Take a train to Boston",
+            "currency": "US dollar"},
+
+        {"date": "9/5/2018",
+            "amount": "100",
+            "category": "Entertainment",
+            "detail": "Watch a basketball game",
+            "currency": "US dollar"},
+
+        {"date": "9/5/2018",
+            "amount": "15",
+            "category": "Transportation",
+            "detail": "Take a train to Worcester",
+            "currency": "US dollar"},
+
+        {"date": "9/17/2018",
+            "amount": "25",
+            "category": "Food",
+            "detail": "Eat at Boston Market",
+            "currency": "US dollar"},
+
+        {"date": "9/27/2018",
+            "amount": "35",
+            "category": "Grocery",
+            "detail": "Shop at supermarket",
+            "currency": "US dollar"}
+    ],
+        "income" : 200,
+        "debt" : 150},
+
+    {"spending": [
+        {"date": "10/2/2018",
+            "amount": "20",
+            "category": "Food",
+            "detail": "Eat at Boston Market",
+            "currency": "US dollar"},
+
+        {"date": "10/5/2018",
+            "amount": "40",
+            "category": "Clothes",
+            "detail": "Buy a clothes",
+            "currency": "US dollar"},
+
+        {"date": "10/15/2018",
+            "amount": "10",
+            "category": "Transportation",
+            "detail": "Take an Uber",
+            "currency": "US dollar"},
+
+        {"date": "10/20/2018",
+            "amount": "25",
+            "category": "Food",
+            "detail": "Eat at Restaurant",
+            "currency": "US dollar"},
+
+        {"date": "10/24/2018",
+            "amount": "20",
+            "category": "Entertainment",
+            "detail": "Watch a movie",
+            "currency": "US dollar"}
+    ],
+        "income" : 250,
+        "debt" : 100},
+
+    {"spending": [
+        {"date": "11/2/2018",
+            "amount": "25",
+            "category": "Grocery",
+            "detail": "Shop at supermarket",
+            "currency": "US dollar"},
+
+        {"date": "11/8/2018",
+            "amount": "8",
+            "category": "Transportation",
+            "detail": "Uber",
+            "currency": "US dollar"},
+
+        {"date": "11/15/2018",
+            "amount": "10",
+            "category": "Sports",
+            "detail": "Go to the gym",
+            "currency": "US dollar"},
+
+        {"date": "11/17/2018",
+            "amount": "20",
+            "category": "Food",
+            "detail": "Eat at restaurant",
+            "currency": "US dollar"},
+
+        {"date": "11/26/2018",
+            "amount": "20",
+            "category": "Entertainment",
+            "detail": "Buy a comic book",
+            "currency": "US dollar"}
+    ],
+        "income" : 200,
+        "debt" : 50},
+    {"spending": [
+        {"date": "12/5/2018",
+            "amount": "15",
+            "category": "Food",
+            "detail": "Eat at McDonald",
+            "currency": "US dollar"},
+
+        {"date": "12/18/2018",
+            "amount": "9",
+            "category": "Transportation",
+            "detail": "Take an Uber",
+            "currency": "US dollar"},
+
+        {"date": "12/20/2018",
+            "amount": "25",
+            "category": "Food",
+            "detail": "Buy some fruits",
+            "currency": "US dollar"},
+
+        {"date": "12/24/2018",
+            "amount": "50",
+            "category": "Grocery",
+            "detail": "Shop at supermarket",
+            "currency": "US dollar"},
+
+        {"date": "12/27/2018",
+            "amount": "35",
+            "category": "Clothes",
+            "detail": "Buy a clothes",
+            "currency": "US dollar"}
+    ],
+        "income" : 300,
+        "debt" : 0}
+]
