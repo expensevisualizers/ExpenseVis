@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MyLineChart from './LineChart.js';
-import MyPieChart from './PieChart'
 import MyMonth from './MonthView.js';
 import spending from './spending.json';
 

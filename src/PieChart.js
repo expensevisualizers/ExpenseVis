@@ -23,9 +23,9 @@ export default class App extends Component{
         thisMonthSpending[0].spending.forEach(spd => {
             let spdCategory = spd.category;
             if (categoryCount[spdCategory] == null) {
-                categoryCount[spdCategory] = 1
+                categoryCount[spdCategory] = parseFloat(spd.amount)
             } else {
-                categoryCount[spdCategory]++
+                categoryCount[spdCategory] += parseFloat(spd.amount)
             }
         });
 
@@ -47,9 +47,9 @@ export default class App extends Component{
             const catY = cy  + catRadius * Math.sin(-midAngle * RADIAN);
 
             return (
-                <text x={x} y={y} textAnchor={x > cx ? 'start' : 'end'} 	dominantBaseline="central">
+                <text x={x} y={y} textAnchor={x > cx ? 'start' : 'end'} >
                     <tspan x={x} y={y} fill="white">
-                        {(percent * 100).toFixed(0)}% {'\n'}
+                        {(percent * 100).toFixed(0)}%
                     </tspan>
                     <tspan x={catX} y={catY} fill="black">
                         {categoryCountList[index].category}
