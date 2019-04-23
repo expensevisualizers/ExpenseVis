@@ -67,11 +67,11 @@ export default class myLineChart extends React.Component{
                         </linearGradient>
                     </defs>
                     <XAxis dataKey="name" onClick={this.props.clickHandle}/>
-                    {/*<Legend />*/}
+                    <Legend verticalAlign="top" height={36}/>
                     <YAxis />
                     <YAxis yAxisId={1} orientation='right'/>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <Tooltip />
+                    <Tooltip contentStyle={{backgroundColor: 'rgba(52, 52, 52, 0.5)', borderRadius: 20}}/>
                     {this.props.debt ? <Area type="monotone" dataKey="debt" stroke="#FF2C51" fillOpacity={1} fill="url(#colorUv)" /> : null }
                     {this.props.income ? <Area type="monotone" dataKey="income" stroke="#659AFF" fillOpacity={1} fill="url(#colorPva)" /> : null }
                     {this.props.spending ? <Area type="monotone" stackId="1" dataKey="Food" stroke="#FFC39E" fillOpacity={1} fill="url(#colorPvb)" /> : null }
