@@ -30,7 +30,7 @@ export default class App extends Component{
         );
 
         return (
-                <Griddle className="flex-container" data={thisMonthSpending} styleConfig={styleConfig} components={{Layout: NewLayout}} plugins={[plugins.LocalPlugin]}/>
+                <Griddle className="flex-item" data={thisMonthSpending} styleConfig={styleConfig} components={{Layout: NewLayout}} plugins={[plugins.LocalPlugin]}/>
         );
     }
 }

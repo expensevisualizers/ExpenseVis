@@ -69,6 +69,8 @@
 
 .flex-item{
   flex-grow: 1;
+  width: 100%;
+
 }
 
 .dark-title{
