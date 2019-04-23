@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 
 import { AreaChart, Area, ResponsiveContainer, Legend, Scatter, ScatterChart, Label, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceArea } from 'recharts';
+import DefaultTooltipContent from 'recharts/lib/component/DefaultTooltipContent';
 
 const data = [
     {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
@@ -15,6 +16,29 @@ const data = [
     {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
     {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
+
+
+const CustomTooltip = props => {
+    // we don't need to check payload[0] as there's a better prop for this purpose
+    if (!props.active) {
+        // I think returning null works based on this: http://recharts.org/en-US/examples/CustomContentOfTooltip
+        return null
+    }
+    // mutating props directly is against react's conventions
+    // so we create a new payload with the name and value fields set to what we want
+    const newPayload = [
+        {
+            name: 'Total',
+            // all your data which created the tooltip is located in the .payload property
+            value: (props.payload[0].payload.Food || 0 )+ (props.payload[0].payload.Entertainment || 0) + (props.payload[0].payload.Transportation || 0 )+ (props.payload[0].payload.Clothes || 0) + (props.payload[0].payload.Grocery || 0)
+            // you can also add "unit" here if you need it
+        },
+        ...props.payload,
+    ];
+
+    // we render the default, but with our overridden payload
+    return <DefaultTooltipContent {...props} payload={newPayload} />;
+};
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 export default class myLineChart extends React.Component{
@@ -65,6 +89,10 @@ export default class myLineChart extends React.Component{
                             <stop offset="5%" stopColor="#CCBC62" stopOpacity={0.8}/>
                             <stop offset="95%" stopColor="#CCBC62" stopOpacity={0.1}/>
                         </linearGradient>
+                        <linearGradient id="colorPvf" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#a8cc61" stopOpacity={0.8}/>
+                            <stop offset="95%" stopColor="#a8cc61" stopOpacity={0.1}/>
+                        </linearGradient>
                     </defs>
                     <XAxis dataKey="name" onClick={this.props.clickHandle}/>
                     <Legend verticalAlign="top" height={36}/>
@@ -72,7 +100,8 @@ export default class myLineChart extends React.Component{
                     <YAxis yAxisId={1} orientation='right'/>
                     <CartesianGrid strokeDasharray="3 3" />
 
-                    <Tooltip  labelStyle={{color: "white"}}
+                    <Tooltip  content={ <CustomTooltip/> }
+                        labelStyle={{color: "white"}}
                               /*formatter={(value, name, props) => { return "$" + value; }}*/
                               contentStyle={{backgroundColor: 'rgba(52, 52, 52, 0.5)', borderRadius: 20}}/>
                     {this.props.debt ? <Area type="monotone" dataKey="debt" stroke="#FF2C51" fillOpacity={1} fill="url(#colorUv)" /> : null }
@@ -81,6 +110,7 @@ export default class myLineChart extends React.Component{
                     {this.props.spending ? <Area type="monotone" stackId="1" dataKey="Entertainment" stroke="#FF94B9" fillOpacity={1} fill="url(#colorPvc)" /> : null }
                     {this.props.spending ? <Area type="monotone" stackId="1" dataKey="Transportation" stroke="#B5B19C" fillOpacity={1} fill="url(#colorPvd)" /> : null }
                     {this.props.spending ? <Area type="monotone" stackId="1" dataKey="Clothes" stroke="#CCBC62" fillOpacity={1} fill="url(#colorPve)" /> : null }
+                    {this.props.spending ? <Area type="monotone" stackId="1" dataKey="Grocery" stroke="#a8cc61" fillOpacity={1} fill="url(#colorPvf)" /> : null }
                 </AreaChart>
             </ResponsiveContainer>
         );
