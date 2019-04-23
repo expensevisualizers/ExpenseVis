@@ -65,16 +65,52 @@ export default class App extends Component{
     };
 
 
+    getCategoryColor = (category) => {
+        switch (category) {
+            case "Food":
+                return "#FFC39E";
+            case "Entertainment":
+                return "#FF94B9";
+            case "Transportation":
+                return "#B5B19C";
+            case "Clothes":
+                return "#CCBC62";
+            default:
+                return "#000000";
+        }
+    };
+
+
+    getTotalSpending = (spendingList) => {
+        let total = 0;
+        spendingList.forEach(spd => {
+            let spdAmt = spd.amount;
+            total += parseFloat(spdAmt);
+        });
+        return total
+    };
+
 
     render () {
         return (
-                <PieChart height={400} width={550} className="">
+            <div>
+                <h3 className="dark-title">{
+                    this.props.month
+                }
+                </h3>
+                <PieChart height={400} width={550}>
                     <Pie animationDuration={700} data={this.state.data} dataKey="count" nameKey="category" cx="50%" cy="50%" innerRadius={80} outerRadius={140} fill="#8884d8" label={this.renderCustomizedLabel} >
                              {
-                                 this.state.data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                                 this.state.data.map((entry, index) => <Cell fill={
+                                     this.getCategoryColor(entry.category)
+                                 }/>)
                              }
                     </Pie>
                 </PieChart>
+                <h3 className="dark-title">Total Spending: ${
+                    this.getTotalSpending(this.props.data[0].spending)
+                }</h3>
+            </div>
         );
     }
 }

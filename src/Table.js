@@ -3,9 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import Griddle from 'griddle-react';
-import {ResponsiveContainer} from "recharts";
-
+import Griddle, {plugins} from 'griddle-react';
 
 export default class App extends Component{
 
@@ -15,7 +13,7 @@ export default class App extends Component{
             styles: {
                 TableHeadingCell: { width: 100 },
                 Table: {
-                    color: "black"
+                    color: "black",
                 },
                 Settings: {hidden: true}
             }
@@ -26,13 +24,13 @@ export default class App extends Component{
         const NewLayout = ({ Table, Pagination, Filter, SettingsWrapper }) => (
             <div>
                 <Filter/>
-                <Pagination/>
                 <Table />
+                <Pagination/>
             </div>
         );
 
         return (
-                <Griddle className="flex-container" data={thisMonthSpending} styleConfig={styleConfig} components={{Layout: NewLayout}}/>
+                <Griddle className="flex-container" data={thisMonthSpending} styleConfig={styleConfig} components={{Layout: NewLayout}} plugins={[plugins.LocalPlugin]}/>
         );
     }
 }

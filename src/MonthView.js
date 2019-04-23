@@ -27,10 +27,10 @@ export default class App extends Component{
         });
 
         return (
-            <div className="flex-container">
-                <MyPieChart month={this.props.month} data={thisMonthSpending}/>
-                <MyTable month={this.props.month} data={thisMonthSpending}/>
-            </div>
+                <div className="flex-container">
+                    <MyPieChart month={this.props.month} data={thisMonthSpending}/>
+                    <MyTable month={this.props.month} data={thisMonthSpending}/>
+                </div>
         );
     }
 }
