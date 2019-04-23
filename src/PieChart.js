@@ -98,7 +98,7 @@ export default class App extends Component{
                     this.props.month
                 }
                 </h3>
-                <PieChart height={400} width={550}>
+                <PieChart>
                     <Pie animationDuration={700} data={this.state.data} dataKey="count" nameKey="category" cx="50%" cy="50%" innerRadius={80} outerRadius={140} fill="#8884d8" label={this.renderCustomizedLabel} >
                              {
                                  this.state.data.map((entry, index) => <Cell fill={
