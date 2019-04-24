@@ -1,9 +1,5 @@
 /**
-<<<<<<< HEAD
  * Created by hzhang3 on 4/10/19.
-=======
- * Created by jtgaulin on 4/9/19.
->>>>>>> 07e60b43d33b7084aa7d1ccd9001bda81cd66645
  */
 
 import React, { Component } from 'react';
@@ -93,20 +89,23 @@ export default class App extends Component{
 
     render () {
         return (
-            <div>
+            <div className="flex-item">
                 <h3 className="dark-title">{
                     this.props.month
                 }
                 </h3>
-                <PieChart>
-                    <Pie animationDuration={700} data={this.state.data} dataKey="count" nameKey="category" cx="50%" cy="50%" innerRadius={80} outerRadius={140} fill="#8884d8" label={this.renderCustomizedLabel} >
-                             {
-                                 this.state.data.map((entry, index) => <Cell fill={
-                                     this.getCategoryColor(entry.category)
-                                 }/>)
-                             }
-                    </Pie>
-                </PieChart>
+                <ResponsiveContainer height="80%" width="50%" minWidth={310} minHeight={110}>
+
+                    <PieChart margin={{top: 50, right: 150, left: 150, bottom: 50}}>
+                        <Pie animationDuration={700} data={this.state.data} dataKey="count" nameKey="category" cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" fill="#8884d8" label={this.renderCustomizedLabel} >
+                                 {
+                                     this.state.data.map((entry, index) => <Cell fill={
+                                         this.getCategoryColor(entry.category)
+                                     }/>)
+                                 }
+                        </Pie>
+                    </PieChart>
+                </ResponsiveContainer>
                 <h3 className="dark-title">Total Spending: ${
                     this.getTotalSpending(this.props.data[0].spending)
                 }</h3>
