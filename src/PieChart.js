@@ -40,17 +40,18 @@ export default class App extends Component{
     renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index}) => {
         const RADIAN = Math.PI / 180;
 
-        const radius = innerRadius + (outerRadius - innerRadius)*0.5;
+        const radius = innerRadius + (outerRadius - innerRadius)*0.25;
         const x  = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy  + radius * Math.sin(-midAngle * RADIAN);
 
-        const catRadius = innerRadius + (outerRadius - innerRadius)*1.5;
+        const catRadius = innerRadius + (outerRadius - innerRadius)*2.0;
         const catX  = cx + catRadius * Math.cos(-midAngle * RADIAN);
         const catY = cy  + catRadius * Math.sin(-midAngle * RADIAN);
 
+
         return (
-            <text x={x} y={y} textAnchor={x > cx ? 'start' : 'end'} >
-                <tspan x={x} y={y} fill="white">
+            <text x={x} y={y} textAnchor={x > cx ? 'start' : 'end'}>
+                <tspan id="percent" x={x} y={y} fill="black" fontSize={10}>
                     {(percent * 100).toFixed(0)}%
                 </tspan>
                 <tspan x={catX} y={catY} fill="black">
@@ -58,6 +59,7 @@ export default class App extends Component{
                 </tspan>
             </text>
         );
+
     };
 
 
@@ -71,6 +73,8 @@ export default class App extends Component{
                 return "#B5B19C";
             case "Clothes":
                 return "#CCBC62";
+            case "Grocery":
+                return "#a8cc61";
             default:
                 return "#000000";
         }
@@ -89,15 +93,15 @@ export default class App extends Component{
 
     render () {
         return (
-            <div className="flex-item">
+            <div id="pie-chart">
                 <h3 className="dark-title">{
                     this.props.month
                 }
                 </h3>
-                <ResponsiveContainer height="80%" width="50%" minWidth={310} minHeight={110}>
+                <ResponsiveContainer height="70%" width="100%">
 
-                    <PieChart margin={{top: 50, right: 150, left: 150, bottom: 50}}>
-                        <Pie animationDuration={700} data={this.state.data} dataKey="count" nameKey="category" cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" fill="#8884d8" label={this.renderCustomizedLabel} >
+                    <PieChart>
+                        <Pie animationDuration={700} data={this.state.data} dataKey="count" nameKey="category" cx="50%" cy="50%" innerRadius="50%" outerRadius="70%" fill="#8884d8" label={this.renderCustomizedLabel} >
                                  {
                                      this.state.data.map((entry, index) => <Cell fill={
                                          this.getCategoryColor(entry.category)
@@ -106,9 +110,9 @@ export default class App extends Component{
                         </Pie>
                     </PieChart>
                 </ResponsiveContainer>
-                <h3 className="dark-title">Total Spending: ${
+                <h4 className="dark-title">Total Spending: ${
                     this.getTotalSpending(this.props.data[0].spending)
-                }</h3>
+                }</h4>
             </div>
         );
     }

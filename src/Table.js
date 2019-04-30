@@ -14,8 +14,7 @@ export default class App extends Component{
                 TableHeadingCell: { width: 100 },
                 Table: {
                     color: "black",
-                },
-                Settings: {hidden: true}
+                }
             }
         };
 
@@ -29,8 +28,33 @@ export default class App extends Component{
             </div>
         );
 
+        let rows = thisMonthSpending.map((spd) => {
+            return (
+                <tr>
+                    <td>{spd.date}</td>
+                    <td>{spd.amount}</td>
+                    <td>{spd.category}</td>
+                    <td>{spd.detail}</td>
+                </tr>
+            )
+        });
+
         return (
-                <Griddle className="flex-item" data={thisMonthSpending} styleConfig={styleConfig} components={{Layout: NewLayout}} plugins={[plugins.LocalPlugin]}/>
-        );
+            <div id="table-wrapper" >
+                <div id="filter-wrapper">
+                    <p id="filter-title">Filter:</p>
+                    <input/>
+                </div>
+                <table id="table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Category</th>
+                        <th>Detail</th>
+                    </tr>
+                    { rows }
+                </table>
+            </div>)
     }
+    //<Griddle className="flex-item" data={thisMonthSpending} styleConfig={styleConfig} components={{Layout: NewLayout}} plugins={[plugins.LocalPlugin]}/>
 }
