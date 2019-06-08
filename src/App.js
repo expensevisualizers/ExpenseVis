@@ -29,7 +29,7 @@ class App extends Component {
               <div className="box-header">
                   <div style={{float: "left", display: "flex"}}>
                       {this.state.month === "all" ?
-                          <button className="w3-button w3-black button ev-button">Back</button> :
+                          <button className="w3-button w3-black button ev-button" style={{display: "none"}}>Back</button> :
                           <button className="w3-button w3-black button ev-button" onClick={()=>{this.setState({month: "all"})}}>Back</button>}
                       <select name="" style={{marginLeft: 30}}>
                           <option value="USD" selected="selected">United States Dollars</option>
