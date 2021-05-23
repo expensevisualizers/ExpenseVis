@@ -1,6 +1,6 @@
 import React from 'react';
-import MyPieChart from '../components/PieChart';
-import MyTable from '../components/Table.js';
+import PieChart from '../components/PieChart';
+import Table from '../components/Table.js';
 import months from '../utils/months'
 
 export default (props) => {
@@ -45,7 +45,7 @@ export default (props) => {
     }}>no spending data</div>
 
     const pieChart = thisMonthSpending ?
-        <MyPieChart month={month} data={thisMonthSpending} />
+        <PieChart month={month} data={thisMonthSpending} />
         :
         pieChartNoData
 
@@ -69,7 +69,7 @@ export default (props) => {
     }}>no spending data</div>
 
     const table = thisMonthSpending ?
-        <MyTable month={month} data={thisMonthSpending} />
+        <Table month={month} data={thisMonthSpending} />
         :
         tableNoData
 
@@ -85,7 +85,7 @@ export default (props) => {
                         {totalSpending}
                         {nextMonthButton}
                     </div>
-                </div>
+                </div> 
             </div>
             <div style={{ flex: "0 0 50%" }}>
                 {table}

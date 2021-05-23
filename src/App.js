@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import MyLineChart from './components/LineChart';
-import MyMonth from './pages/MonthView';
+import LineChart from './components/LineChart';
+import MonthView from './pages/MonthView';
 import spending from './spending.json';
 import currencies from './utils/currency'
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom'
+import months from './utils/months'
 
 const App = () => {
   const [state, setState] = useState({ month: "October", spending: true, income: false, debt: false })
@@ -41,7 +42,7 @@ const App = () => {
 
           <Switch>
             <Route path="/" exact render={(props) =>
-              <MyLineChart
+              <LineChart
                 data={spending}
                 spending={state.spending}
                 income={state.income}
@@ -49,9 +50,9 @@ const App = () => {
                 history={props.history}
               />
             } />
-            <Route path="/:month" exact render={(props) =>
-              <MyMonth
-                month={props.match.params.month}
+            <Route path={months.map(month => `/${month}`)} exact render={(props) =>
+              <MonthView
+                month={props.match.path.slice(1)}
                 data={spending}
                 history={props.history}
               />
